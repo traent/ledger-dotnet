@@ -1,0 +1,13 @@
+#nullable enable
+const Leb128.U32.MaxCanonicalBytes = 5 -> int
+const Leb128.U64.MaxCanonicalBytes = 10 -> int
+Leb128.U32
+Leb128.U64
+static Leb128.U32.GetSize(uint value) -> int
+static Leb128.U32.TryReadLeb128(this ref System.Buffers.SequenceReader<byte> reader, out uint value) -> bool
+static Leb128.U32.Write(System.Span<byte> destination, uint value) -> int
+static Leb128.U32.WriteLeb128(this System.Buffers.IBufferWriter<byte>! writer, uint value) -> void
+static Leb128.U64.GetSize(ulong value) -> int
+static Leb128.U64.TryReadLeb128(this ref System.Buffers.SequenceReader<byte> reader, out ulong value) -> bool
+static Leb128.U64.Write(System.Span<byte> destination, ulong value) -> int
+static Leb128.U64.WriteLeb128(this System.Buffers.IBufferWriter<byte>! writer, ulong value) -> void

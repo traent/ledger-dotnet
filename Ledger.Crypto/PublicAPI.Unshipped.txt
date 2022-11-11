@@ -1,0 +1,49 @@
+#nullable enable
+static Traent.Ledger.Crypto.Algorithms.CreateEd25519() -> Traent.Ledger.Crypto.ISignatureAlgorithm!
+static Traent.Ledger.Crypto.Algorithms.CreateIncrementalHmacSha512(System.ReadOnlySpan<byte> key) -> Traent.Ledger.Crypto.IIncrementalHash!
+static Traent.Ledger.Crypto.Algorithms.CreateIso7816d4Padding() -> Traent.Ledger.Crypto.IPadding!
+static Traent.Ledger.Crypto.Algorithms.CreateOneShotHmacSha512(System.ReadOnlySpan<byte> key) -> Traent.Ledger.Crypto.IOneShotHash!
+static Traent.Ledger.Crypto.Algorithms.CreateXChaCha20Poly1305SealedBox() -> Traent.Ledger.Crypto.ISealedBox!
+static Traent.Ledger.Crypto.Algorithms.Sha512MerkleCombiner(byte[]! leftChild, byte[]! rightChild) -> byte[]!
+static Traent.Ledger.Crypto.Algorithms.Sha512MerkleCombiner(System.ReadOnlySpan<byte> leftChild, System.ReadOnlySpan<byte> rightChild) -> byte[]!
+static Traent.Ledger.Crypto.Algorithms.Sha512MerkleLeaf(System.ReadOnlySpan<byte> leafValue) -> byte[]!
+static Traent.Ledger.Crypto.CryptoProvider.ComputeLedgerId(System.ReadOnlySpan<byte> ledgerPublicKey) -> byte[]!
+static Traent.Ledger.Crypto.CryptoProvider.ForLedger(byte[]! ledgerId) -> Traent.Ledger.Crypto.ICryptoProvider!
+static Traent.Ledger.Crypto.CryptoProvider.ForPublicKey(byte[]! ledgerPublicKey) -> Traent.Ledger.Crypto.ICryptoProvider!
+Traent.Ledger.Crypto.Algorithms
+Traent.Ledger.Crypto.CryptoProvider
+Traent.Ledger.Crypto.IAuthenticatedEncryption
+Traent.Ledger.Crypto.IAuthenticatedEncryption.Decrypt(System.ReadOnlySpan<byte> nonce, System.ReadOnlySpan<byte> ciphertext, System.ReadOnlySpan<byte> tag, System.Span<byte> plaintext) -> void
+Traent.Ledger.Crypto.IAuthenticatedEncryption.Encrypt(System.ReadOnlySpan<byte> nonce, System.ReadOnlySpan<byte> plaintext, System.Span<byte> ciphertext, System.Span<byte> tag) -> void
+Traent.Ledger.Crypto.ICryptoProvider
+Traent.Ledger.Crypto.ICryptoProvider.CreateOneShotHash(string? algorithm) -> Traent.Ledger.Crypto.IOneShotHash!
+Traent.Ledger.Crypto.ICryptoProvider.CreateSignatureAlgorithm(string? algorithm) -> Traent.Ledger.Crypto.ISignatureAlgorithm!
+Traent.Ledger.Crypto.IIncrementalHash
+Traent.Ledger.Crypto.IIncrementalHash.AppendData(System.ReadOnlySpan<byte> data) -> void
+Traent.Ledger.Crypto.IIncrementalHash.GetCurrentHash(System.Span<byte> destination) -> int
+Traent.Ledger.Crypto.IIncrementalHash.HashLengthInBytes.get -> int
+Traent.Ledger.Crypto.IOneShotHash
+Traent.Ledger.Crypto.IOneShotHash.ComputeHash(System.ReadOnlySpan<byte> source) -> byte[]!
+Traent.Ledger.Crypto.IOneShotHash.ComputeHash(System.ReadOnlySpan<byte> source, System.Span<byte> destination) -> int
+Traent.Ledger.Crypto.IOneShotHash.HashLengthInBytes.get -> int
+Traent.Ledger.Crypto.IPadding
+Traent.Ledger.Crypto.IPadding.ComputePaddedLength(int dataLength, int blockSize) -> int
+Traent.Ledger.Crypto.IPadding.CopyAndPad(System.ReadOnlySpan<byte> source, int blockSize) -> byte[]!
+Traent.Ledger.Crypto.IPadding.Pad(System.Span<byte> buffer, int dataLength, int blockSize) -> void
+Traent.Ledger.Crypto.IPadding.Unpad(System.ReadOnlySpan<byte> buffer, int blockSize) -> System.ReadOnlySpan<byte>
+Traent.Ledger.Crypto.ISealedBox
+Traent.Ledger.Crypto.ISealedBox.ComputeSharedKey(System.ReadOnlySpan<byte> publicKey, System.ReadOnlySpan<byte> secretKey) -> byte[]!
+Traent.Ledger.Crypto.ISealedBox.ComputeSharedKeyFromBox(System.ReadOnlySpan<byte> box, System.ReadOnlySpan<byte> secretKey) -> byte[]!
+Traent.Ledger.Crypto.ISealedBox.Open(System.ReadOnlySpan<byte> box, System.ReadOnlySpan<byte> secretKey, System.ReadOnlySpan<byte> publicKey) -> byte[]!
+Traent.Ledger.Crypto.ISealedBox.OpenFromSharedKey(System.ReadOnlySpan<byte> box, System.ReadOnlySpan<byte> sharedKey, System.ReadOnlySpan<byte> publicKey) -> byte[]!
+Traent.Ledger.Crypto.ISealedBox.PublicKeyFromSignatureKey(System.ReadOnlySpan<byte> ed25519) -> byte[]!
+Traent.Ledger.Crypto.ISealedBox.Seal(System.ReadOnlySpan<byte> plainText, System.ReadOnlySpan<byte> publicKey) -> byte[]!
+Traent.Ledger.Crypto.ISealedBox.SecretKeyFromSignatureKey(System.ReadOnlySpan<byte> ed25519) -> byte[]!
+Traent.Ledger.Crypto.ISignatureAlgorithm
+Traent.Ledger.Crypto.ISignatureAlgorithm.GenerateKeyPair(out byte[]! publicKey, out byte[]! secretKey) -> void
+Traent.Ledger.Crypto.ISignatureAlgorithm.GenerateKeyPair(System.Span<byte> publicKey, System.Span<byte> secretKey) -> void
+Traent.Ledger.Crypto.ISignatureAlgorithm.IsValidSignature(System.ReadOnlySpan<byte> publicKey, System.ReadOnlySpan<byte> message, System.ReadOnlySpan<byte> signature) -> bool
+Traent.Ledger.Crypto.ISignatureAlgorithm.PublicKeyLengthInBytes.get -> int
+Traent.Ledger.Crypto.ISignatureAlgorithm.SecretKeyLengthInBytes.get -> int
+Traent.Ledger.Crypto.ISignatureAlgorithm.Sign(System.ReadOnlySpan<byte> secretKey, System.ReadOnlySpan<byte> message, System.Span<byte> signature) -> void
+Traent.Ledger.Crypto.ISignatureAlgorithm.SignatureLengthInBytes.get -> int

@@ -1,0 +1,69 @@
+#nullable enable
+static Traent.Ledger.Parser.BlockBuilder.AddAuthorSignatureEncapsulation(this Traent.Ledger.Parser.IBlockBuilder! inner, System.ReadOnlyMemory<byte> authorId, System.Func<System.Buffers.IBufferWriter<byte>!, Traent.Ledger.Parser.ISigner!>! signerFactory) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.AddInContextEncapsulation(this Traent.Ledger.Parser.IBlockBuilder! inner, System.ReadOnlyMemory<byte> contextLinkHash) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.AddPreviousBlockEncapsulation(this Traent.Ledger.Parser.IBlockBuilder! inner, System.ReadOnlyMemory<byte> previousBlockHash) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.AddUpdateContextEncapsulation(this Traent.Ledger.Parser.IBlockBuilder! inner) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.MakeAckBlock(ulong targetIndex, System.ReadOnlyMemory<byte> targetLinkHash) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.MakeAddAuthorsBlock(System.Collections.Generic.IReadOnlyList<System.ReadOnlyMemory<byte>>! authorKeys) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.MakeDataBlock(System.ReadOnlyMemory<byte> data) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.MakePolicyBlock(ulong version, System.ReadOnlyMemory<byte> policy) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.MakeReferenceBlock(System.Collections.Generic.IReadOnlyList<System.ReadOnlyMemory<byte>>! hashes) -> Traent.Ledger.Parser.IBlockBuilder!
+static Traent.Ledger.Parser.BlockBuilder.ToBytes(this Traent.Ledger.Parser.IBlockBuilder! value) -> byte[]!
+static Traent.Ledger.Parser.BlockBuilder.Write(this System.Buffers.IBufferWriter<byte>! writer, Traent.Ledger.Parser.IBlockBuilder! value) -> void
+static Traent.Ledger.Parser.IBlockExtensions.ReadBlock(this in System.ReadOnlyMemory<byte> source) -> Traent.Ledger.Parser.IBlock!
+Traent.Ledger.Parser.AckBlock
+Traent.Ledger.Parser.AckBlock.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.AckBlock.TargetIndex.get -> ulong
+Traent.Ledger.Parser.AckBlock.TargetLinkHash.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.AddAuthorsBlock
+Traent.Ledger.Parser.AddAuthorsBlock.AuthorKeys.get -> System.Collections.Generic.IReadOnlyList<System.ReadOnlyMemory<byte>>!
+Traent.Ledger.Parser.AddAuthorsBlock.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.AuthorSignatureEncapsulation
+Traent.Ledger.Parser.AuthorSignatureEncapsulation.AuthorId.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.AuthorSignatureEncapsulation.AuthorSignature.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.AuthorSignatureEncapsulation.Inner.get -> Traent.Ledger.Parser.IBlock!
+Traent.Ledger.Parser.AuthorSignatureEncapsulation.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.BlockBuilder
+Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.Ack = 75 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.AddAuthors = 65 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.AuthorSignature = 83 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.Data = 68 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.InContext = 67 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.Policy = 71 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.PreviousBlock = 80 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.Reference = 82 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.BlockType.UpdateContext = 85 -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.DataBlock
+Traent.Ledger.Parser.DataBlock.Data.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.DataBlock.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.IBlock
+Traent.Ledger.Parser.IBlock.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.IBlock.Type.get -> Traent.Ledger.Parser.BlockType
+Traent.Ledger.Parser.IBlockBuilder
+Traent.Ledger.Parser.IBlockBuilder.Write(System.Buffers.IBufferWriter<byte>! writer) -> void
+Traent.Ledger.Parser.IBlockExtensions
+Traent.Ledger.Parser.IEncapsulation
+Traent.Ledger.Parser.IEncapsulation.Inner.get -> Traent.Ledger.Parser.IBlock!
+Traent.Ledger.Parser.InContextEncapsulation
+Traent.Ledger.Parser.InContextEncapsulation.ContextLinkHash.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.InContextEncapsulation.Inner.get -> Traent.Ledger.Parser.IBlock!
+Traent.Ledger.Parser.InContextEncapsulation.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.ISigner
+Traent.Ledger.Parser.ISigner.CreateSignature(System.Span<byte> signature) -> void
+Traent.Ledger.Parser.ISigner.SignatureLengthInBytes.get -> int
+Traent.Ledger.Parser.ISigner.Writer.get -> System.Buffers.IBufferWriter<byte>!
+Traent.Ledger.Parser.PolicyBlock
+Traent.Ledger.Parser.PolicyBlock.Policy.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.PolicyBlock.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.PolicyBlock.Version.get -> ulong
+Traent.Ledger.Parser.PreviousBlockEncapsulation
+Traent.Ledger.Parser.PreviousBlockEncapsulation.Inner.get -> Traent.Ledger.Parser.IBlock!
+Traent.Ledger.Parser.PreviousBlockEncapsulation.PreviousBlockHash.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.PreviousBlockEncapsulation.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.ReferenceBlock
+Traent.Ledger.Parser.ReferenceBlock.Hashes.get -> System.Collections.Generic.IReadOnlyList<System.ReadOnlyMemory<byte>>!
+Traent.Ledger.Parser.ReferenceBlock.Raw.get -> System.ReadOnlyMemory<byte>
+Traent.Ledger.Parser.UpdateContextEncapsulation
+Traent.Ledger.Parser.UpdateContextEncapsulation.Inner.get -> Traent.Ledger.Parser.IBlock!
+Traent.Ledger.Parser.UpdateContextEncapsulation.Raw.get -> System.ReadOnlyMemory<byte>
