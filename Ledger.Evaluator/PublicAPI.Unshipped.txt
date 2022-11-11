@@ -1,0 +1,87 @@
+#nullable enable
+static readonly Traent.Ledger.Evaluator.ApplicationData.Default -> Traent.Ledger.Evaluator.ApplicationData!
+static readonly Traent.Ledger.Evaluator.ByteArrayComparer.Instance -> Traent.Ledger.Evaluator.ByteArrayComparer!
+static Traent.Ledger.Evaluator.ByteArrayComparer.AreEqual(byte[]? x, byte[]? y) -> bool
+static Traent.Ledger.Evaluator.ByteArrayComparer.AreEqual(System.ReadOnlySpan<byte> x, System.ReadOnlySpan<byte> y) -> bool
+static Traent.Ledger.Evaluator.EvaluationState.ForEmptyLedger(Traent.Ledger.Crypto.ICryptoProvider! cryptoProvider) -> Traent.Ledger.Evaluator.EvaluationState!
+static Traent.Ledger.Evaluator.EvaluationState.ForLedger(Traent.Ledger.Crypto.ICryptoProvider! cryptoProvider, Traent.Ledger.Evaluator.ILedgerState! ledgerState, System.Collections.Generic.IReadOnlyDictionary<ulong, byte[]!>! knownLinkHashes, System.Collections.Generic.IReadOnlyDictionary<byte[]!, byte[]!>! knownAuthorKeys) -> Traent.Ledger.Evaluator.EvaluationState!
+static Traent.Ledger.Evaluator.LedgerBuilder.BuildFromState(Traent.Ledger.Evaluator.ILedgerState! state) -> Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder!
+static Traent.Ledger.Evaluator.LedgerBuilder.BuildGenesisBlock(byte[]! publicKey, byte[]![]! authors, int maxBlockSize, out byte[]! block) -> Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder!
+static Traent.Ledger.Evaluator.LedgerBuilder.BuildGenesisBlock(byte[]! publicKey, int maxBlockSize, out byte[]! block) -> Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder!
+static Traent.Ledger.Evaluator.RequirementsState.Create() -> Traent.Ledger.Evaluator.RequirementsState!
+Traent.Ledger.Evaluator.ApplicationData
+Traent.Ledger.Evaluator.ApplicationData.ApplicationData(string! Version, string! Serialization, string? Encryption) -> void
+Traent.Ledger.Evaluator.ApplicationData.Encryption.get -> string?
+Traent.Ledger.Evaluator.ApplicationData.Encryption.init -> void
+Traent.Ledger.Evaluator.ApplicationData.Serialization.get -> string!
+Traent.Ledger.Evaluator.ApplicationData.Serialization.init -> void
+Traent.Ledger.Evaluator.ApplicationData.Version.get -> string!
+Traent.Ledger.Evaluator.ApplicationData.Version.init -> void
+Traent.Ledger.Evaluator.AppPolicy
+Traent.Ledger.Evaluator.AppPolicy.AppPolicy(byte[]! LedgerPublicKey, int MaxBlockSize, string! HashingAlgorithm, string! SigningAlgorithm, byte[]![]! AllowedBlocks, byte[]![]! AuthorKeys, Traent.Ledger.Evaluator.ApplicationData! ApplicationData) -> void
+Traent.Ledger.Evaluator.ByteArrayComparer
+Traent.Ledger.Evaluator.ByteArrayComparer.ByteArrayComparer() -> void
+Traent.Ledger.Evaluator.ByteArrayComparer.Equals(byte[]? x, byte[]? y) -> bool
+Traent.Ledger.Evaluator.ByteArrayComparer.GetHashCode(byte[]! obj) -> int
+Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.AuthorAlreadyPresent = 9 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.AuthorNotFound = 10 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.BlockLinkHashMismatch = 7 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.BlockNotFound = 6 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.BlockTooBig = 1 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.BlockTypeNotAllowed = 2 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.CannotParsePolicy = 4 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.ContextLinkHashMismatch = 13 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.InvalidAuthorKey = 8 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.InvalidHashLength = 5 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.InvalidPolicyVersion = 3 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.InvalidSignature = 11 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.MalformedBlock = 0 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblem.PreviousBlockHashMismatch = 12 -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationProblemDetectedEventArgs
+Traent.Ledger.Evaluator.EvaluationProblemDetectedEventArgs.Problem.get -> Traent.Ledger.Evaluator.EvaluationProblem
+Traent.Ledger.Evaluator.EvaluationState
+Traent.Ledger.Evaluator.EvaluationState.Evaluate(byte[]! rawBlock, out Traent.Ledger.Parser.IBlock? block) -> Traent.Ledger.Evaluator.ILedgerState?
+Traent.Ledger.Evaluator.EvaluationState.Evaluate(Traent.Ledger.Parser.IBlock! block) -> Traent.Ledger.Evaluator.ILedgerState?
+Traent.Ledger.Evaluator.EvaluationState.ProblemDetected -> System.EventHandler<Traent.Ledger.Evaluator.EvaluationProblemDetectedEventArgs!>?
+Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder
+Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder.MakeAckBlock() -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder.MakeAckBlock(ulong targetIndex, byte[]! targetHash) -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder.MakeAddAuthorsBlock(System.Collections.Generic.IReadOnlyList<System.ReadOnlyMemory<byte>>! publicKeys) -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder.MakeDataBlock(System.ReadOnlyMemory<byte> data) -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder.MakeReferenceBlock(System.Collections.Generic.IReadOnlyList<System.ReadOnlyMemory<byte>>! hashes) -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerState
+Traent.Ledger.Evaluator.ILedgerState.BlockCount.get -> ulong
+Traent.Ledger.Evaluator.ILedgerState.ContextLinkHash.get -> byte[]!
+Traent.Ledger.Evaluator.ILedgerState.HeadBlockHash.get -> byte[]!
+Traent.Ledger.Evaluator.ILedgerState.HeadLinkHash.get -> byte[]!
+Traent.Ledger.Evaluator.ILedgerState.Policy.get -> Traent.Ledger.Evaluator.Policy!
+Traent.Ledger.Evaluator.ILedgerWrapperBuilder
+Traent.Ledger.Evaluator.ILedgerWrapperBuilder.AddAuthorSignatureEncapsulation(System.ReadOnlyMemory<byte> publicKey, System.ReadOnlyMemory<byte> secretKey) -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerWrapperBuilder.AddInContextEncapsulation() -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerWrapperBuilder.AddPreviousBlockEncapsulation() -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerWrapperBuilder.AddUpdateContextEncapsulation() -> Traent.Ledger.Evaluator.ILedgerWrapperBuilder!
+Traent.Ledger.Evaluator.ILedgerWrapperBuilder.Build(out byte[]! block) -> Traent.Ledger.Evaluator.ILedgerBasicBlockBuilder!
+Traent.Ledger.Evaluator.LedgerBuilder
+Traent.Ledger.Evaluator.Policy
+Traent.Ledger.Evaluator.Policy.AllowedBlocks.get -> byte[]![]!
+Traent.Ledger.Evaluator.Policy.AllowedBlocks.init -> void
+Traent.Ledger.Evaluator.Policy.ApplicationData.get -> Traent.Ledger.Evaluator.ApplicationData!
+Traent.Ledger.Evaluator.Policy.ApplicationData.init -> void
+Traent.Ledger.Evaluator.Policy.AuthorKeys.get -> byte[]![]!
+Traent.Ledger.Evaluator.Policy.AuthorKeys.init -> void
+Traent.Ledger.Evaluator.Policy.HashingAlgorithm.get -> string!
+Traent.Ledger.Evaluator.Policy.HashingAlgorithm.init -> void
+Traent.Ledger.Evaluator.Policy.LedgerPublicKey.get -> byte[]!
+Traent.Ledger.Evaluator.Policy.LedgerPublicKey.init -> void
+Traent.Ledger.Evaluator.Policy.MaxBlockSize.get -> int
+Traent.Ledger.Evaluator.Policy.MaxBlockSize.init -> void
+Traent.Ledger.Evaluator.Policy.Policy(byte[]! LedgerPublicKey, int MaxBlockSize, string! HashingAlgorithm, string! SigningAlgorithm, byte[]![]! AllowedBlocks, byte[]![]! AuthorKeys, Traent.Ledger.Evaluator.ApplicationData! ApplicationData) -> void
+Traent.Ledger.Evaluator.Policy.SigningAlgorithm.get -> string!
+Traent.Ledger.Evaluator.Policy.SigningAlgorithm.init -> void
+Traent.Ledger.Evaluator.RequirementsState
+Traent.Ledger.Evaluator.RequirementsState.AckedIndexes.get -> System.Collections.Generic.IEnumerable<ulong>!
+Traent.Ledger.Evaluator.RequirementsState.AckedLinkHashes.get -> System.Collections.Generic.IEnumerable<byte[]!>!
+Traent.Ledger.Evaluator.RequirementsState.Evaluate(Traent.Ledger.Parser.IBlock! block) -> void
+Traent.Ledger.Evaluator.RequirementsState.NewAuthors.get -> System.Collections.Generic.IEnumerable<byte[]!>!
+Traent.Ledger.Evaluator.RequirementsState.Signers.get -> System.Collections.Generic.IEnumerable<byte[]!>!
